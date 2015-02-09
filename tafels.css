@@ -8,6 +8,9 @@
 	font-size: 38px;
 	margin-bottom: 30px;
 }
+#selectie .label {
+    margin-right: 5px;
+}
 #selectie h2 {
 	display: inline-block;
 }
