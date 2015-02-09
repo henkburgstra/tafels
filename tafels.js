@@ -6,6 +6,7 @@ function sortNumber(a, b) {
 
 tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	$scope.gestart = false;
+	$scope.magAntwoorden = false;
 	$scope.bedenktijd = 4;
 	$scope.counterTimeout = null;
 	$scope.tafels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -38,6 +39,7 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	};
 
 	$scope.nieuweSom = function() {
+	    $scope.magAntwoorden = true;
 		$scope.counter = $scope.bedenktijd;
     	$scope.pauzetekst = 'Pauzeer';
 		$scope.antwoord = '?';
@@ -60,15 +62,13 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	
 	$scope.goed = function() {
 		document.getElementById('succesgeluid').play();
-		$scope.aantalSommen++;
-		$scope.aantalGoed++;	
+		$scope.aantalGoed++;
 		$scope.toonCorrectAntwoord = false;
 		$scope.antwoordClass = 'label-success';
 	};
 	
 	$scope.fout = function() {
 		document.getElementById('foutgeluid').play();
-		$scope.aantalSommen++;
 		$scope.aantalFout++;
 		$scope.toonCorrectAntwoord = true;
 		$scope.antwoordClass = 'label-danger';
@@ -100,10 +100,12 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	
 	$scope.pauze = function() {
 		if ($scope.pauzetekst == 'Pauzeer') {
+		    $scope.magAntwoorden = false;
 			$timeout.cancel($scope.counterTimeout)
 			$scope.pauzetekst = 'Ga verder';
 		}
 		else {
+		    $scope.magAntwoorden = true;
 			$scope.counter = $scope.bedenktijd;
 			$scope.pauzetekst = 'Pauzeer';
 			$scope.counterTimeout = $timeout($scope.countDown, 1000);
@@ -112,6 +114,8 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	
 	$scope.gekozenAntwoord = function(antwoord) {
 		$timeout.cancel($scope.counterTimeout);
+	    $scope.magAntwoorden = false;
+		$scope.aantalSommen++;
 		$scope.antwoord = parseInt(antwoord);
 		if ($scope.antwoord == $scope.correctAntwoord) {
 			$scope.goed();

@@ -60,7 +60,8 @@
 						ng-repeat="antwoord in mogelijkeAntwoorden" 
 						class="btn btn-primary btn-lg" 
 						value="{{antwoord}}"
-						ng-click="gekozenAntwoord(antwoord)">{{antwoord}}</button>
+						ng-click="gekozenAntwoord(antwoord)"
+                        ng-disabled="!magAntwoorden">{{antwoord}}</button>
 				</div>
 				<button 
 					type="button" 
