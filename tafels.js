@@ -7,11 +7,6 @@ function sortNumber(a, b) {
 tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	$scope.gestart = false;
 	$scope.bedenktijd = 4;
-	$scope.pauzetekst = 'Pauzeer';
-	$scope.counter = $scope.bedenktijd;
-	$scope.aantalSommen = 0;
-	$scope.aantalGoed = 0;
-	$scope.aantalFout = 0;
 	$scope.counterTimeout = null;
 	$scope.tafels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	$scope.gekozenTafels = [];
@@ -20,10 +15,7 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 	$scope.vermenigvuldigtal = 0;
 	$scope.vermenigvuldiger = 0;
 	$scope.correctAntwoord = 0;
-	$scope.antwoord = '?';
-	$scope.antwoordClass = 'label-warning';
-	$scope.toonCorrectAntwoord = false;
-	
+
 	$scope.selecteerTafel = function(tafel) {
 	    var idx = $scope.gekozenTafels.indexOf(tafel);
 	
@@ -44,9 +36,10 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 			$scope.nieuweSom();			
 		}
 	};
-	
+
 	$scope.nieuweSom = function() {
 		$scope.counter = $scope.bedenktijd;
+    	$scope.pauzetekst = 'Pauzeer';
 		$scope.antwoord = '?';
 		$scope.antwoordClass = 'label-warning';
 		$scope.toonCorrectAntwoord = false;
