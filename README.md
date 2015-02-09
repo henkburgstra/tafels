@@ -1,7 +1,7 @@
 # tafels
 Tafels oefenen voor kinderen uit groep 4, groep 5 en groep 6
 
-Hier kun je [tafels uitproberen](http://henkburgstra.github.io/tafels/). Lees verder voor een korte instructie.
+[Hier kun je tafels oefenen](http://henkburgstra.github.io/tafels/). Lees verder voor een korte instructie.
 
 In het startscherm kun je tafels selecteren:
 ![](https://github.com/henkburgstra/tafels/blob/gh-pages/selecteer_tafels.png)
