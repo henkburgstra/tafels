@@ -78,6 +78,7 @@ tafelsApp.controller('TafelsCtrl', function ($scope, $timeout) {
 		$scope.counter--;
 		if ($scope.counter == 0) {
 			$timeout.cancel($scope.counterTimeout);
+			$scope.aantalSommen++;
 			$scope.fout();
 			$scope.counter = TIMEOUT;
 			$scope.counterTimeout = $timeout($scope.countDownNieuweSom, 1000);
